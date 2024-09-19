@@ -1,0 +1,21 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+  <title>SM Teste Dev</title>
+</h:head>
+
+<h:body>
+  <h1>Contatos</h1>
+
+  <p:dataTable value="#{contatoBean.contatos}" var="contato">
+    <p:column headerText="CPF / CNPJ">
+      <h:outputText value="#{contato.cpfCnpj}" />
+    </p:column>
+
+  </p:dataTable>
+
+</h:body>
+
+</html>
