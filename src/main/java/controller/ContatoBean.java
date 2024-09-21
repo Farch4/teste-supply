@@ -1,7 +1,8 @@
 package controller;
 
+import java.io.IOException;
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -20,15 +21,17 @@ public class ContatoBean implements Serializable {
 
   @EJB
   private ContatoService service;
+  private List<Contato> contatos = new ArrayList<>();
 
   @PostConstruct
-  public void posConstructor() {
+  public void posConstructor() throws IOException {
 
+    if(contatos.isEmpty())service.feedBase();
+    contatos= service.getContatos();
   }
 
   public List<Contato> getContatos() {
-    final Contato c = new Contato();
-    c.setCpfCnpj("11122233344");
-    return Arrays.asList(c);
+    return contatos;
   }
+
 }

@@ -3,9 +3,10 @@ package model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @Entity
-public class Endereco {
+public class Endereco implements Serializable {
 
   @Id
   private String id;
@@ -75,4 +76,13 @@ public class Endereco {
     this.uf = uf;
   }
 
+  public Endereco(String id, Contato contato, String endereco, String bairro, String cidade, String uf, String cep) {
+    this.id = id;
+    this.contato = contato;
+    this.endereco = endereco;
+    this.bairro = bairro;
+    this.cidade = cidade;
+    this.uf = uf;
+    this.cep = cep;
+  }
 }
