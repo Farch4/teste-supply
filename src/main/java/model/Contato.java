@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Contato {
+public class Contato implements Serializable {
 
   @Id
   private String cpfCnpj;
@@ -34,11 +35,11 @@ public class Contato {
     this.nome = nome;
   }
 
-  public List<Endereco> getEnrecos() {
+  public List<Endereco> getEnderecos() {
     return this.enrecos;
   }
 
-  public void setEnrecos(final List<Endereco> enrecos) {
+  public void setEnderecos(final List<Endereco> enrecos) {
     this.enrecos = enrecos;
   }
 
@@ -48,6 +49,12 @@ public class Contato {
     int result = 1;
     result = prime * result + (this.cpfCnpj == null ? 0 : this.cpfCnpj.hashCode());
     return result;
+  }
+
+  public Contato(String cpfCnpj, String nome, List<Endereco> enrecos) {
+    this.cpfCnpj = cpfCnpj;
+    this.nome = nome;
+    this.enrecos = enrecos;
   }
 
   @Override
